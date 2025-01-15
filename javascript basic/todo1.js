@@ -1,9 +1,11 @@
 // todo1.js
 // 입력받은 2개의 시간을 비교하여 많은 시간을 일/시 로 표시하시오. 
 
-let a = prompt() + 1;
-let b = prompt() + 1;
-let c = prompt() + 1;
+let a = prompt();
+let b = prompt();
+let c = prompt();
+let result = 0;
+console.log(a, b, c);
 if (a > b) {
   if(a > c){
     result = a;
@@ -17,5 +19,6 @@ if (a > b) {
     result = c;
   }
 }
-
-console.log(`가장 많은 시간은 ${result}입니다.`)
+let hour =parseInt( result % 24);
+let Days =parseInt(result / 24);
+console.log(`가장 많은 시간은 ${result}이며, ${Days}일, ${hour}시간입니다.`)
