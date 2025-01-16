@@ -60,7 +60,23 @@ function getLastDate(month = 1){
     return 30;
   }
 }
-
+function getHolidays(month){
+  holidays = {
+    1: ['1일: 새해','27일: 임시 공휴일', '28일:설 연휴','29일:설 연휴','30일:설 연휴'],
+    2: [],
+    3: ['1일: 3.1절','3일: 대체 휴일'],
+    4: [],
+    5: ['1일: 근로자의 날', '5일: 부처님 오신날.어린이날','6일: 대체 휴일'],
+    6: ['6일: 현충일'],
+    7: [],
+    8: ['15일: 광복절'],
+    9: [],
+    10: ['3일: 개천절','6일: 추석연휴','7일: 추석연휴','8일: 대체 휴일','9일: 한글날'],
+    11: [],
+    12: ['25일: 성탄절'] ,   
+  };
+  return holidays[month] ;
+}
 
 
 // 달력출력함수.
@@ -68,7 +84,7 @@ function makeCalender(month = 1) {
   
   let spaces = getDays(month); // 1일의 위치(공백).
   let lastDays = getLastDate(month); //해당하는 월의 말일.
-
+  let holidays = getHolidays(month); // 해당하는 월의 휴일.
   let days = ['일','월','화','수','목','금','토'];
   // html 작성하는 부분 시작.
   let html = '';
@@ -90,12 +106,11 @@ function makeCalender(month = 1) {
         html +=`<td style="color: blue;">${i}</td>`; 
       } else if ((i + spaces)% 7 == 1){//일요일.
         html+= `<td style="color: red;">${i}</td>`;
-      } //   else if(i>=28 && i<=30 || i == 1){//공휴일
-      //    html+= `<td style="color: red;">${i}</td>`;
-      //  }      
-       else{
+      }  else{
         html += `<td>${i}</td>`;
-      }        
+       } // if(holidays=i){
+      //   html+= `<td style="color: red;">${i}</td>`;
+      // }
       if((i+spaces)%7 == 0  ){// 토요일이 될 때 마다 줄바꿈.
      html += `</tr><tr>`;
    }
