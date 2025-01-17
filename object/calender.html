@@ -10,21 +10,7 @@
   월: <input type="number" name="month" value="1" style="width: 30px;"></input>
 <button>이동</button>
   
- <div id="show"></div>
- <!-- <table border="1">
-  <thead></thead>
-  <tbody id="list">
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
-      <td>6</td>
-      <td>7</td>
-    </tr>
-  </tbody>
- </table> -->
+ <div id="show"></div> 
 <script>
 
 document.querySelector(`button`).addEventListener('click', function(){
@@ -104,10 +90,12 @@ let spaces = 0;
 // }l
 function RRR(month){
   let arrTd = document.getElementsByTagName(`td`);
-  let qwer=[]
+  let qwer=[];
 holidays.forEach(function(item, idx, ary){
-        if(month==item.month); 
-       qwer=item.days});
+        if(month==item.month) 
+       qwer=item.days;
+      }
+);
        for(let i =0; i<qwer.length; i++){
         arrTd[qwer[i] + spaces -1 ].setAttribute('style', 'color: red')
        }
