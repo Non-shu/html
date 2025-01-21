@@ -12,7 +12,7 @@
   
  <div id="show"></div> 
 <script>
-
+console.dir(document.querySelector(`#show`))
 document.querySelector(`button`).addEventListener('click', function(){
   let year = document.querySelector(`[name="year"]`).value;
   let month = document.querySelector(`[name="month"]`).value;
@@ -157,7 +157,17 @@ function makeCalender(year = 2025, month = 1) {
   </script>
 
 
-
+<!-- 월의 공휴일 날짜만 가져오기.
+function make calender (year = 2024, month = 1){
+let holiday = holidays.fliter(function(item,idx,ary){
+ if (item.month == month)
+ return true;
+ }
+ return false;
+}); 
+위의 함수를 적용 할 경우 
+if (holiday.length > 0 && holyday[0].days.indexOf(i) != -1)을 추가로 넣어야 에러가안뜸. 
+-->
 
 </body>
 </html>
